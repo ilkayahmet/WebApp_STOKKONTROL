@@ -1,0 +1,24 @@
+﻿<div class="stock-report-modal modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger-800">
+                <button ng-click="stock.init()" type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Stok Rapor Alma</h6>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <product-dropdown component-class="col-sm-12 {{ stock.product.cls}}" type="1" input-label="Ürünler" input-message="{{stock.product.msg}}" input-value="stock.product.inputValue" on-select="stock.product.select(product)" init="stock.product.init()" input-placeholder="Ürün Seçiniz..." init-input="stock.product.initInput()" should-load-options-on-input-focus="stock.product.shouldLoadOptionsOnInputFocus"></product-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="dlink" style="display:none;"></a>
+                <button ng-click="stock.init()" type="button" class="btn btn-link" data-dismiss="modal">İptal</button>
+                <button ng-click="stock.save()" type="button" class="btn bg-danger-800" id="saveinreportbtn">İndir</button>
+            </div>
+           
+        </div>
+    </div>
+</div>
+

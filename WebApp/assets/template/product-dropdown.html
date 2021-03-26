@@ -1,0 +1,12 @@
+﻿<div ng-class="$ctrl.componentClass + product.cls">
+    <label>{{$ctrl.inputLabel}}</label>
+    <input class="form-control" type="text" autocomplete="off" ng-model="$ctrl.inputValue" ng-focus="product.focus($event)" ng-blur="product.blur()" ng-change="product.filter.change()" placeholder="{{$ctrl.inputPlaceholder}}"/>
+    <div dir="ltr" class="option-container" ng-style="product.options.container.style" ng-class="product.options.container.cls">
+        <h6 class="text-center text-muted text-size-small" ng-show="!product.options.isExist"><i class="text-warning icon-warning"></i> Kayıt bulunmuyor!</h6>
+        <ul class="dropdown-menu">
+            <li ng-repeat="_product in product.options.list"><a href="#" ng-click="product.options.click(_product)"> <span dir="ltr" ng-bind-html="_product.NAMEDROPDOWN"></span> </a></li>
+            <li><button class="btn btn-block btn-default text-primary" ng-click="product.options.more.load()" ng-focus="product.options.more.focus()" ng-blur="product.options.more.blur()"><i class="icon " ng-class="product.options.isExist && !product.options.page.isLastPage ? 'icon-circle-down2' : 'icon-blocked'"></i></button></li>
+        </ul>
+    </div>
+    <span class="help-block">{{$ctrl.inputMessage}}</span>
+</div>

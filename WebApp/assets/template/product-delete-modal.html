@@ -1,0 +1,40 @@
+﻿<div class="product-delete-modal modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header bg-danger-400">
+						<button type="button" class="close" data-dismiss="modal" ng-click="product.init()">&times;</button>
+						<h6 class="modal-title">Ürün Silme</h6>
+					</div>
+
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Ürün Adı</label>
+									<input type="text" class="form-control" ng-model="product.name.value" disabled>
+								</div>
+								<div class="col-sm-6">
+									<label>Ürün Açıklama</label>
+									<input type="text" class="form-control" ng-model="product.comment.value" disabled>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-sm-12">
+									<h4 class="text-center">Yukarıda bilgileri bulunan ürünü silmek üzeresiniz!</h4>
+									<h5 class="text-center">Bu işlemin dönüşü olmayacaktır yinede silmek istediğinizden emin misiniz?</h5>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="modal-footer">
+						<button ng-click="product.init()" type="button" class="btn btn-link" data-dismiss="modal">Kapat</button>
+						<button ng-click="product.delete()" type="button" class="btn bg-danger-400">Sil</button>
+					</div>
+				</div>
+			</div>
+		</div>

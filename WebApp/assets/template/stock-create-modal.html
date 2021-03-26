@@ -1,0 +1,38 @@
+﻿<div class="stock-create-modal modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button ng-click="stock.init()" type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Stok Ekleme</h6>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <product-dropdown component-class="col-sm-12 {{ stock.product.cls}}" type="1" input-label="Ürünler" input-message="{{stock.product.msg}}" input-value="stock.product.inputValue" on-select="stock.product.select(product)" init="stock.product.init()" input-placeholder="Ürün Seçiniz..." init-input="stock.product.initInput()" should-load-options-on-input-focus="stock.product.shouldLoadOptionsOnInputFocus"></product-dropdown>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" ng-class="stock.quantity.cls">
+                            <label>Stok Miktarı</label>
+                            <input type="text" class="form-control" ng-model="stock.quantity.text" ng-change="stock.quantity.change()">
+                            <span class="help-block">{{stock.quantity.msg}}</span>
+                        </div>
+                        <div class="col-sm-4" ng-class="stock.utype.cls">
+                            <label>Stok Birimi</label>
+                            <select class="form-control" ng-options="unitype as unitype.name for unitype in stock.utype.list track by unitype.value" ng-model="stock.utype.selected" ng-change="stock.utype.change()"></select>
+                            <span class="help-block">{{stock.utype.msg}}</span>
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Açıklama</label>
+                            <input type="text" class="form-control" ng-model="stock.comment.value">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="stock.init()" type="button" class="btn btn-link" data-dismiss="modal">Kapat</button>
+                    <button ng-click="stock.save()" type="button" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

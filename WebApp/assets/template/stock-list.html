@@ -1,0 +1,60 @@
+﻿<div class="panel panel-flat">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="heading-form">
+                    <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Filtrele" ng-model="stock.filter.value" ng-change="stock.filter.change()" />
+                        <div class="form-control-feedback">
+                            <i class="icon-search4"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="heading-elements">
+            <div class="heading-btn">
+                <button ng-click="stock.load()" class="btn btn-default btn-flat btn-icon no-border"><i class="icon-reload-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover datatable-highlight">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap">Ürün Adı</th>
+                        <th class="text-nowrap">Stok Miktarı</th>
+                        <th class="text-nowrap">Stok Birimi</th>
+                        <th class="text-nowrap">Açıklama</th>
+                        <th class="text-nowrap text-center">Oluşturulma Tarihi</th>
+                        <th class="text-nowrap text-center">Son Güncellenme Tarihi</th>
+                        <th class="text-center"><i class="icon-menu-open2"></i></th>
+                    </tr>
+                </thead>
+                <tbody ng-show="!stock.isExist">
+                    <tr>
+                        <td colspan="7"><h6 class="text-center text-muted no-margin"><i class="icon-warning text-warning"></i> Sistemde stok bulunmuyor!</h6></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr ng-repeat="_stock in stock.list">
+                        <td class="text-nowrap">{{_stock.P_NAME}}</td>
+                        <td class="text-nowrap">{{_stock.QUANTITYTXT}}</td>
+                        <td class="text-nowrap">{{_stock.UNITTXT}}</td>
+                        <td class="text-nowrap">{{_stock.COMMENT}}</td>
+                        <td class="text-nowrap text-center">{{_stock.CREATEDATETXT}}</td>
+                        <td class="text-nowrap text-center">{{_stock.MODIFYDATETXT}}</td>
+                        <td class="text-center min-width-100">
+                            <button type="button" class="btn bg-orange-400 btn-icon" ng-click="stock.show.update(_stock);"><i class="icon-pencil7"></i></button>
+                            <button type="button" class="btn bg-danger btn-icon" ng-click="stock.show.delete(_stock);"><i class="icon-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="text-center bootpag-flat"></div>
+    </div>
+</div>
